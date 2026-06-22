@@ -13,10 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const metadataBase = new URL(
+  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000",
+);
+
 export const metadata: Metadata = {
   title: `${siteContent.brand.name} | Modern Blasting Solutions Demo`,
   description: siteContent.brand.seoDescription,
-  metadataBase: new URL("https://mountrockpowder.com"),
+  metadataBase,
   openGraph: {
     title: `${siteContent.brand.name} | ${siteContent.brand.tagline}`,
     description: siteContent.brand.seoDescription,
